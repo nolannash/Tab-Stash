@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "Tab Stash",
+    "description": "An extension to Stash All those tabs you might want again eventually.",
+    "version": "1.0.0",
+    "icons": {
+        "16":"stack.png",
+        "48":"stack.png",
+        "128":"stack.png"
+    },
+    "options_page": "options.html",
+
+    "background":{
+        "service_worker": "background.js"
+    },
+    "permissions":[
+        "tabs",
+        "windows",
+        "bookmarks",
+        "storage",
+        "identity"
+    ],
+
+    "action":{
+        "default_title": "Click Me",
+        "default_popup": "popup.html"
+        },
+    "content_scripts":[
+        {
+            "matches": ["<all_urls>"],
+            "js": ["contentScript.js"]
+        }
+    ]
+
+}
